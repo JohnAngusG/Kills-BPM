@@ -25,11 +25,13 @@ def get_match_kills(match_id, puuid, api_key):
 
 counter = 0
 
-
-puuid = get_puuid("na1", config.api_key, "M4NU")
+summoner_name = "M4NU"
+puuid = get_puuid("na1", config.api_key, summoner_name)
 matches = get_matches(puuid, config.api_key)
 
-# kills = get_match_kills('NA1_4814488897', puuid, config.api_key)
-# print(kills)
+for match in matches:
+    match_kills = get_match_kills(match, puuid, config.api_key)
+    counter += match_kills
 
-print(matches[1]) ## matches is being read out as one continous string? why?
+print(counter)
+print(f"The average kills of {summoner_name} in the last 20 games is {counter / len(matches)}")
