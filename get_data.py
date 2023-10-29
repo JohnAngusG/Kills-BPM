@@ -13,7 +13,7 @@ def get_matches(puuid, api_key):
     api_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "/ids?start=0&count=20" +"&api_key=" + api_key
     response = requests.get(api_url)
     match_ids = response.json()
-    return str(match_ids)
+    return match_ids
 
 def get_match_kills(match_id, puuid, api_key):
     api_url = "https://americas.api.riotgames.com/lol/match/v5/matches/" + match_id + "?api_key=" + api_key
