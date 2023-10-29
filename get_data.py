@@ -20,7 +20,8 @@ def get_match_kills(match_id, puuid, api_key):
     response = requests.get(api_url)
     match_info = response.json()
     index_of_player = match_info["metadata"]["participants"].index(puuid)
-    return index_of_player
+    kills = match_info["info"]["participants"][index_of_player]['kills']
+    return kills
 
 puuid = get_puuid("na1", config.api_key, "M4NU")
 print(puuid)
