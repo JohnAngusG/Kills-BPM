@@ -8,4 +8,10 @@ def get_puuid(region, api_key, summoner_name):
     player_puuid = player_info["puuid"]
     return print(player_puuid)
 
-get_puuid("na1", config.api_key , "Perdón")
+def get_matches(puuid, api_key):
+    api_url = "https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/" + puuid + "&api_key=" + api_key
+    repsonse = requests.get(api_url)
+    match_ids = repsonse.json()
+    return print(match_ids)
+
+
