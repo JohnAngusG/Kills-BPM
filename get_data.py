@@ -23,11 +23,13 @@ def get_match_kills(match_id, puuid, api_key):
     kills = match_info["info"]["participants"][index_of_player]['kills']
     return kills
 
-puuid = get_puuid("na1", config.api_key, "M4NU")
-print(puuid)
+counter = 0
 
+
+puuid = get_puuid("na1", config.api_key, "M4NU")
 matches = get_matches(puuid, config.api_key)
 
-kills = get_match_kills('NA1_4814488897', puuid, config.api_key)
-print(kills)
+# kills = get_match_kills('NA1_4814488897', puuid, config.api_key)
+# print(kills)
 
+print(matches[1]) ## matches is being read out as one continous string? why?
